@@ -6,7 +6,7 @@
 #    By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/29 16:35:05 by acesar-m          #+#    #+#              #
-#    Updated: 2025/01/29 16:35:06 by acesar-m         ###   ########.fr        #
+#    Updated: 2025/01/30 16:01:36 by acesar-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJ_DIR				= obj/
 
 # Compilador e CFlags
 CC					= gcc
-CFLAGS				= -Wall -Werror -Wextra -I
+CFLAGS				= -Wall -Werror -Wextra -I$(INC)
 RM					= rm -f
 
 # Arquivos Fonte
@@ -36,7 +36,6 @@ PUSH_SWAP_DIR		=	$(SRC_DIR)push_swap/handle_errors.c \
 						$(SRC_DIR)push_swap/init_a_to_b.c \
 						$(SRC_DIR)push_swap/init_b_to_a.c \
 						$(SRC_DIR)push_swap/push_swap.c \
-						$(SRC_DIR)push_swap/split.c \
 						$(SRC_DIR)push_swap/stack_init.c \
 						$(SRC_DIR)push_swap/stack_utils.c
 
@@ -56,12 +55,19 @@ $(LIBFT):
 all: 				$(NAME)
 
 $(NAME): 			$(OBJ) $(LIBFT)
-					@$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) -o $(NAME)
+					@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+					@echo "\033[0;32mSUCCESS!\033[0m"
+
+# Tag valgrind
+val: $(NAME)
+	@echo "\033[0;32mRodando o Valgrind...!\033[0m"
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) "5 2 3 1"
+
 
 # Compilar arquivos objeto a partir dos arquivos fonte
 $(OBJ_DIR)%.o:		$(SRC_DIR)%.c 
 					@mkdir -p $(@D)
-					@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+					@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 					@$(RM) -r $(OBJ_DIR)

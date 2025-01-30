@@ -6,15 +6,16 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:46:48 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/29 15:37:14 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:01:22 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdbool.h> //Para usar flags booleanas, por exemplo, para imprimir ou não imprimir
-# include <limits.h> //Para definir as macros MIN e MAX
+# include <stdbool.h>
+//Para usar flags booleanas, por exemplo, para imprimir ou não imprimir
+# include <limits.h>//Para definir as macros MIN e MAX
 # include "../libft/libft.h"
 
 typedef enum e_bool
@@ -23,17 +24,17 @@ typedef enum e_bool
 	TRUE
 }t_bool;
 
-typedef struct s_stack_node //Um contêiner de dados fechado entre chaves {}. `s_` para struct
+typedef struct s_stack_node//Um contêiner de dados fechado entre chaves {}. `s_` para struct
 {
-	int					nbr; //O número a ser ordenado
-	int					index; //A posição do número na pilha
-	int					push_cost; //Quantos comandos no total
-	bool				above_median; //Usado para calcular `push_cost`
-	bool				cheapest; //O nó que é o mais barato de se fazer os comandos
+	int					nbr;//O número a ser ordenado
+	int					index;//A posição do número na pilha
+	int					push_cost;//Quantos comandos no total
+	bool				above_median;//Usado para calcular `push_cost`
+	bool				cheapest;//O nó que é o mais barato de se fazer os comandos
 	struct s_stack_node	*target_node; //O nó alvo de um nó na pilha oposta
-	struct s_stack_node	*next; //Um ponteiro para o próximo nó
-	struct s_stack_node	*prev; //Um ponteiro para o nó anterior
-}	t_stack_node; //O "nome abreviado", "t_stack_node". `t_` para tipo
+	struct s_stack_node	*next;//Um ponteiro para o próximo nó
+	struct s_stack_node	*prev;//Um ponteiro para o nó anterior
+}	t_stack_node;//O "nome abreviado", "t_stack_node". `t_` para tipo
 
 //***Tratamento de erros
 int				error_syntax(char *str_n); 
@@ -43,7 +44,7 @@ void			free_errors(t_stack_node **a);
 
 //***Inicialização da pilha
 void			init_stack_a(t_stack_node **a, char **argv); //Inicializa a pilha `a` antes de processar
-char			**split(char *s, char c); //Para tratar a entrada de números como argumento de string, por exemplo, entre aspas " "
+void			free_split(char **result_array); //Libera a memória alocada para as substrings
 
 //***Inicialização dos nós
 void			init_nodes_a(t_stack_node *a, t_stack_node *b); //Para preparar todos os nós para empurrar `a` para `b`

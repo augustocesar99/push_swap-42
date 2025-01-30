@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:11:23 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/29 14:11:28 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:00:45 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,19 @@ void	free_errors(t_stack_node **a) //Define uma função que, ao encontrar um er
 	free_stack(a);
 	ft_printf("Error\n");
 	exit(1);
+}
+
+void free_split(char **result_array)
+{
+	int i = 0;
+
+	// Libera as substrings alocadas
+	while (result_array[i]) 
+	{
+		free(result_array[i]);
+		i++;
+	}
+
+	// Libera o array de ponteiros
+	free(result_array);
 }
