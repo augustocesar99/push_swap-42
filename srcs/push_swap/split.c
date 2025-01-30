@@ -6,13 +6,11 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:20:43 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/29 15:29:04 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/30 10:52:39 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-//Veja as observações abaixo, explicando por que tivemos que criar uma versão "mutável" do ft_split, ao invés de usar a versão da nossa libft
 
 static int	count_words(char *s, char c) //Define uma função que retorna a contagem de substrings em uma string separada por um delimitador
 {
