@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 09:51:04 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/09 10:59:22 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:10:08 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t size);
 void	*ft_calloc(size_t num, size_t size);
 int		ft_isalnum(int c);

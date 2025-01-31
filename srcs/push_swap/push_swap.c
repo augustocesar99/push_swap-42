@@ -6,39 +6,36 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:17:10 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/31 14:54:41 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:50:00 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	main(int argc, char **argv) //Define um programa que recebe uma entrada de números aleatórios e os ordena em ordem crescente
+int main(int argc, char **argv)
 {
-	t_stack_node	*a; //Para armazenar um ponteiro para a pilha `a`
-	t_stack_node	*b; //Para armazenar um ponteiro para a pilha `b`
+	t_stack_node *a = NULL, *b = NULL;
 
-	a = NULL; //Define ambos os ponteiros como NULL para evitar comportamentos indefinidos
-	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0])) //Verifica se há uma quantidade incorreta de argumentos ou se o segundo argumento é `0`
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	else if (argc == 2) //Verifica se a quantidade de argumentos é 2 e o segundo não está vazio, isso implica uma string
+	if (argc == 2)
 	{
-		argv = ft_split(argv[1], ' '); //Chama `split()` para extrair cada substring
-		if (!argv) // Verifica se a alocação foi bem-sucedida
+		argv = ft_split(argv[1], ' ');
+		if (!argv)
 			return (1);
 	}
-	init_stack_a(&a, argv + 1); //Inicializa a pilha `a`, o que também trata os erros
-	if (!stack_sorted(a)) //Verifica se a pilha não está ordenada
+	init_stack_a(&a, argv + 1);
+	if (!stack_sorted(a))
 	{
-		if (stack_len(a) == 2) //Se não estiver, e houver dois números, troca os dois primeiros nós
+		if (stack_len(a) == 2)
 			sa(&a, FALSE);
-		else if (stack_len(a) == 3) //Se não estiver, e houver três números, chama o algoritmo `sort_three`
+		else if (stack_len(a) == 3)
 			sort_three(&a);
 		else
-			sort_stacks(&a, &b); //Se não estiver, e houver mais de três números, chama o algoritmo `sort_stacks`
+			sort_stacks(&a, &b);
 	}
-	if (argv) // Libera a memória alocada para as substrings
+	if (argv)
 		free_split(argv);
-	free_stack(&a); //Libera a memória da pilha
+	free_stack(&a);
 	return (0);
 }

@@ -6,62 +6,62 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:11:23 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/31 14:54:31 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:35:23 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	error_syntax(char *str_n) //Define uma função para tratar erros de sintaxe e retorna `1` em caso de erro, caso qualquer uma das condições a seguir seja atendida
+int	error_syntax(char *str_n)
 {
 	if (!(*str_n == '+'
 			|| *str_n == '-'
-			|| (*str_n >= '0' && *str_n <= '9'))) //Verifica se o primeiro caractere da string de entrada não contém um sinal ou um dígito
+			|| (*str_n >= '0' && *str_n <= '9')))
 		return (1);
 	if ((*str_n == '+'
 			|| *str_n == '-')
-		&& !(str_n[1] >= '0' && str_n[1] <= '9')) //Verifica se o primeiro caractere da string de entrada contém um sinal, mas o segundo caractere não contém um dígito
+		&& !(str_n[1] >= '0' && str_n[1] <= '9'))
 		return (1);
-	while (*++str_n) //Se as condições de erro acima não forem atendidas, pré-incrementa para apontar para o próximo caractere da string e faz um loop até o final da string
+	while (*++str_n)
 	{
-		if (!(*str_n >= '0' && *str_n <= '9')) //Verifica se o próximo caractere na string não é um dígito
+		if (!(*str_n >= '0' && *str_n <= '9'))
 			return (1);
 	}
 	return (0);
 }
 
-int	error_duplicate(t_stack_node *a, int n) //Define uma função que verifica números duplicados na pilha `a`
+int	error_duplicate(t_stack_node *a, int n)
 {
-	if (!a) //Verifica se a pilha está vazia
+	if (!a)
 		return (0);
-	while (a) //Faz um loop até o final da pilha `a` ser alcançado
+	while (a)
 	{
-		if (a->nbr == n) //Verifica se o valor do nó atual é igual a `n`. Consulte `init_stack_a()`
+		if (a->nbr == n)
 			return (1);
-		a = a->next; //Move para o próximo nó para verificar duplicatas
+		a = a->next;
 	}
 	return (0);
 }
 
-void	free_stack(t_stack_node **stack) //Define uma função para liberar a pilha caso ocorram erros
+void	free_stack(t_stack_node **stack)
 {
-	t_stack_node	*tmp; //Para armazenar o próximo nó na pilha antes que o nó atual seja liberado, porque uma vez que um nó é liberado, não é possível acessar seu ponteiro `next`
+	t_stack_node	*tmp;
 	t_stack_node	*current;
 
-	if (!stack) //Verifica se a pilha está vazia
+	if (!stack)
 		return ;
 	current = *stack;
-	while (current) //Enquanto houver um nó na pilha
+	while (current)
 	{
-		tmp = current->next; //Atribui a `tmp` o ponteiro para o próximo nó
-		current->nbr = 0; //Atribuir `0` ao nó antes de liberá-lo não é estritamente necessário, mas pode ajudar a capturar possíveis bugs, como vazamentos de memória, e melhorar a depuração
-		free(current); //Libera o nó atual, desalocando a memória ocupada por esse nó
-		current = tmp; //Atribui `tmp` como o próximo nó da pilha
+		tmp = current->next;
+		current->nbr = 0;
+		free(current);
+		current = tmp;
 	}
 	*stack = NULL;
 }
 
-void	free_errors(t_stack_node **a) //Define uma função que, ao encontrar um erro único, libera a pilha e imprime uma mensagem de erro
+void	free_errors(t_stack_node **a)
 {
 	free_stack(a);
 	ft_printf("Error\n");
@@ -70,15 +70,13 @@ void	free_errors(t_stack_node **a) //Define uma função que, ao encontrar um er
 
 void free_split(char **result_array)
 {
-	int i = 0;
-
-	// Libera as substrings alocadas
+	int i;
+	
+	i = 0;
 	while (result_array[i]) 
 	{
 		free(result_array[i]);
 		i++;
 	}
-
-	// Libera o array de ponteiros
 	free(result_array);
 }

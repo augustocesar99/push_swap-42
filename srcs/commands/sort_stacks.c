@@ -6,87 +6,79 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:59:25 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/31 14:54:22 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:43:07 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void	rotate_both(t_stack_node **a,
-						t_stack_node **b,
-						t_stack_node *cheapest_node) //Define uma função que gira os nós do topo de `a` e `b` para o fundo de suas pilhas, se for o movimento mais barato
+static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
 {
-	while (*b != cheapest_node->target_node
-		&& *a != cheapest_node) //Enquanto o nó atual de `b` não for o nó alvo do nó mais barato de `a`, e o nó atual de `a` não for o nó mais barato
-		rr(a, b, FALSE); //Gira os nós de `a` e `b`
+	while (*b != cheapest_node->target_node && *a != cheapest_node)
+		rr(a, b, FALSE);
 	current_index(*a);
 	current_index(*b);
 }
 
-static void	rev_rotate_both(t_stack_node **a,
-								t_stack_node **b,
-								t_stack_node *cheapest_node) //Define uma função que gira os nós do fundo de `a` e `b` para o topo de suas pilhas, se for o movimento mais barato
+static void	rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
 {
-	while (*b != cheapest_node->target_node
-		&& *a != cheapest_node) //Enquanto o nó atual de `b` não for o nó alvo do nó mais barato de `a` e o nó atual de `a` não for o mais barato
-		rrr(a, b, FALSE); //Gira os nós de `a` e `b` reversamente
-	current_index(*a); //Atualiza as posições dos nós atuais
+	while (*b != cheapest_node->target_node && *a != cheapest_node)
+		rrr(a, b, FALSE);
+	current_index(*a);
 	current_index(*b);
 }
 
-static void	move_a_to_b(t_stack_node **a, t_stack_node **b) //Define uma função que prepara os nós mais baratos no topo das pilhas para empurrar os nós de `a` para a pilha `b`, até que reste três nós em `a`
+static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*cheapest_node; //Para armazenar o ponteiro para o nó mais barato de `a`
+	t_stack_node	*cheapest_node;
 
-	cheapest_node = get_cheapest(*a); 
-	if (cheapest_node->above_median 
-		&& cheapest_node->target_node->above_median) //Se o nó mais barato de `a` e seu nó alvo em `b` estão acima da mediana
+	cheapest_node = get_cheapest(*a);
+	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
-	else if (!(cheapest_node->above_median) 
-		&& !(cheapest_node->target_node->above_median)) //Se tanto o nó mais barato de `a` quanto o nó alvo em `b` estão abaixo da mediana
-		rev_rotate_both(a, b, cheapest_node); //`rev_rotate_both` será executado se nenhum dos nós estiver no topo
-	prep_for_push(a, cheapest_node, 'a'); //Garante que o nó mais barato esteja no topo, pronto para ser empurrado
-	prep_for_push(b, cheapest_node->target_node, 'b'); //Garante que o nó alvo esteja no topo, pronto para ser empurrado
+	else if (!(cheapest_node->above_median) && !(cheapest_node->target_node->above_median))
+		rev_rotate_both(a, b, cheapest_node);
+	prep_for_push(a, cheapest_node, 'a');
+	prep_for_push(b, cheapest_node->target_node, 'b');
 	pb(b, a, FALSE);
 }
 
-static void	move_b_to_a(t_stack_node **a, t_stack_node **b) //Define uma função que prepara os nós alvo de `b` em `a` para empurrar todos os nós de `b` de volta para a pilha `a`
+static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
-	prep_for_push(a, (*b)->target_node, 'a'); //Garante que o nó alvo de `b` em `a` esteja no topo da pilha
-	pa(a, b, FALSE); 
+	prep_for_push(a, (*b)->target_node, 'a');
+	pa(a, b, FALSE);
 }
 
-static void	min_on_top(t_stack_node **a) //Define uma função que move o menor número para o topo
+static void	min_on_top(t_stack_node **a)
 {
-	while ((*a)->nbr != find_min(*a)->nbr) //Enquanto o menor número não estiver no topo
+	while ((*a)->nbr != find_min(*a)->nbr)
 	{
-		if (find_min(*a)->above_median) //Gira ou gira reversamente de acordo com a posição do nó em relação à mediana
+		if (find_min(*a)->above_median)
 			ra(a, FALSE);
 		else
 			rra(a, FALSE);
 	}
 }
 
-void	sort_stacks(t_stack_node **a, t_stack_node **b) //Define uma função que ordena a pilha `a` se ela tiver mais de 3 nós
+void	sort_stacks(t_stack_node **a, t_stack_node **b)
 {
-	int	len_a; //Para armazenar o comprimento da pilha `a`
+	int	len_a;
 
 	len_a = stack_len(*a);
-	if (len_a-- > 3 && !stack_sorted(*a)) //Se a pilha `a` tiver mais de três nós e não estiver ordenada
+	if (len_a-- > 3 && !stack_sorted(*a))
 		pb(b, a, FALSE);
-	if (len_a-- > 3 && !stack_sorted(*a)) //Se a pilha `a` ainda tiver mais de três nós e não estiver ordenada
+	if (len_a-- > 3 && !stack_sorted(*a))
 		pb(b, a, FALSE);
-	while (len_a-- > 3 && !stack_sorted(*a)) //Se a pilha `a` ainda tiver mais de três nós e não estiver ordenada
+	while (len_a-- > 3 && !stack_sorted(*a))
 	{
-		init_nodes_a(*a, *b); //Inicia todos os nós de ambas as pilhas
-		move_a_to_b(a, b); //Move os nós mais baratos de `a` para uma pilha `b` ordenada, até restarem três nós em `a`
+		init_nodes_a(*a, *b);
+		move_a_to_b(a, b);
 	}
 	sort_three(a);
-	while (*b) //Até o final da pilha `b` ser alcançado
+	while (*b)
 	{
-		init_nodes_b(*a, *b); //Inicia todos os nós de ambas as pilhas
-		move_b_to_a(a, b); //Move todos os nós de `b` de volta para uma pilha `a` ordenada
+		init_nodes_b(*a, *b);
+		move_b_to_a(a, b);
 	}
-	current_index(*a); //Atualiza a posição atual da pilha `a`
-	min_on_top(a); //Garante que o menor número está no topo
+	current_index(*a);
+	min_on_top(a);
 }

@@ -6,7 +6,7 @@
 #    By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/29 16:35:05 by acesar-m          #+#    #+#              #
-#    Updated: 2025/01/31 14:55:12 by acesar-m         ###   ########.fr        #
+#    Updated: 2025/01/31 16:07:02 by acesar-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ PUSH_SWAP_DIR		=	$(SRC_DIR)push_swap/handle_errors.c \
 SRCS 				= $(COMMANDS_DIR) $(PUSH_SWAP_DIR)
 
 # Aplica a substituição de padrões para cada arquivo fonte em SRC e gera uma lista correspondente de arquivos objeto no OBJ_DIR
-OBJ 				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
+OBJ				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # Regras de construção
 start:				
@@ -52,17 +52,11 @@ start:
 $(LIBFT):
 					@make -C ./libft
 
-all: 				$(NAME)
+all:				$(NAME)
 
-$(NAME): 			$(OBJ) $(LIBFT)
+$(NAME):			$(OBJ) $(LIBFT)
 					@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
-					@echo "\033[0;32mSUCCESS!\033[0m"
-
-# Tag valgrind
-val: $(NAME)
-	@echo "\033[0;32mRodando o Valgrind...!\033[0m"
-	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) "5 2 3 1"
-
+					@printf "\033[0;32mSUCCESS!\033[0m\n"
 
 # Compilar arquivos objeto a partir dos arquivos fonte
 $(OBJ_DIR)%.o:		$(SRC_DIR)%.c 
@@ -73,11 +67,11 @@ clean:
 					@$(RM) -r $(OBJ_DIR)
 					@make clean -C ./libft
 
-fclean: 			clean
+fclean:			clean
 					@$(RM) $(NAME)
 					@$(RM) $(LIBFT)
 
-re: 				fclean all
+re:				fclean all
 
 # Alvos phony representam ações, não arquivos
-.PHONY: 			start all clean fclean re
+.PHONY:			start all clean fclean re
