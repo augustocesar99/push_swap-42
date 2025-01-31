@@ -6,11 +6,11 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:11:23 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/30 16:00:45 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:54:31 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../../include/push_swap.h"
 
 int	error_syntax(char *str_n) //Define uma função para tratar erros de sintaxe e retorna `1` em caso de erro, caso qualquer uma das condições a seguir seja atendida
 {

@@ -6,11 +6,11 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:32:08 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/29 14:32:09 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:54:46 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../include/push_swap.h"
 
 static long	ft_atol(const char *s) //Define uma função que converte uma string em um valor long
 {

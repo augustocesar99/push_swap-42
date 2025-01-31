@@ -6,11 +6,11 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:57:14 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/29 15:15:16 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:54:08 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../../include/push_swap.h"
 
 static void	push(t_stack_node **dst, t_stack_node **src) //Define uma função que empurra um nó do topo de uma pilha para o topo da outra pilha
 {

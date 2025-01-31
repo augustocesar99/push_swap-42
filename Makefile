@@ -6,7 +6,7 @@
 #    By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/29 16:35:05 by acesar-m          #+#    #+#              #
-#    Updated: 2025/01/30 16:01:36 by acesar-m         ###   ########.fr        #
+#    Updated: 2025/01/31 14:55:12 by acesar-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME				= push_swap
 
 # Diretórios
 LIBFT				= ./libft/libft.a
-INC					= inc/
+INC					= include/
 SRC_DIR				= srcs/
 OBJ_DIR				= obj/
 

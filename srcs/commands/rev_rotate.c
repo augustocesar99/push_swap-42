@@ -6,11 +6,11 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:57:43 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/29 15:33:19 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:54:13 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../../include/push_swap.h"
 
 static void	rev_rotate(t_stack_node **stack) //Define uma função que gira o nó inferior de uma pilha para o topo
 {

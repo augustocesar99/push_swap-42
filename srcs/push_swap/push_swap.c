@@ -6,11 +6,11 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:17:10 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/30 15:59:04 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:54:41 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../../include/push_swap.h"
 
 int	main(int argc, char **argv) //Define um programa que recebe uma entrada de números aleatórios e os ordena em ordem crescente
 {

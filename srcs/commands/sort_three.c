@@ -6,11 +6,11 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:00:57 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/29 15:31:22 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:54:24 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	sort_three(t_stack_node **a) //Define uma função que lida quando a pilha `a` tem três nós e a ordena
 {

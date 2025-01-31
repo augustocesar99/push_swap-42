@@ -6,11 +6,11 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:14:07 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/29 14:14:08 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:54:38 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../../include/push_swap.h"
 
 static void	set_target_b(t_stack_node *a, t_stack_node *b) //Define uma função que define para o nó atual de `a`, seu nó de destino da pilha `b`
 {

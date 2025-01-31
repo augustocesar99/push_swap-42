@@ -6,11 +6,11 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:31:59 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/29 15:28:29 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:54:51 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../include/push_swap.h"
 
 int	stack_len(t_stack_node *stack) //Define uma função que calcula e retorna o comprimento da pilha
 {

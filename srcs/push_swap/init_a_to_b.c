@@ -6,11 +6,11 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:12:49 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/29 15:30:09 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:54:34 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	current_index(t_stack_node *stack)
 {
