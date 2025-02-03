@@ -6,7 +6,7 @@
 #    By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/29 16:35:05 by acesar-m          #+#    #+#              #
-#    Updated: 2025/01/31 16:07:02 by acesar-m         ###   ########.fr        #
+#    Updated: 2025/02/03 13:59:01 by acesar-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,13 +50,13 @@ start:
 					@make all
 
 $(LIBFT):
-					@make -C ./libft
+					@make -s -C ./libft
 
 all:				$(NAME)
 
 $(NAME):			$(OBJ) $(LIBFT)
 					@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
-					@printf "\033[0;32mSUCCESS!\033[0m\n"
+					@printf "\033[0;32mCompilation completed successfully!\033[0m\n"
 
 # Compilar arquivos objeto a partir dos arquivos fonte
 $(OBJ_DIR)%.o:		$(SRC_DIR)%.c 

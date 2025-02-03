@@ -6,25 +6,38 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:17:10 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/31 17:50:00 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:56:18 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int main(int argc, char **argv)
+static int	process_arguments(int argc, char **argv, t_stack_node **a, char ***split_argv)
 {
-	t_stack_node *a = NULL, *b = NULL;
-
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	if (argc == 2)
 	{
-		argv = ft_split(argv[1], ' ');
-		if (!argv)
+		*split_argv = ft_split(argv[1], ' ');
+		if (!*split_argv)
 			return (1);
+		argv = *split_argv;
 	}
-	init_stack_a(&a, argv + 1);
+	init_stack_a(a, argv + 1);
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack_node	*a = NULL;
+	t_stack_node	*b = NULL;
+	char			**split_argv = NULL;
+
+	a = NULL;
+	b = NULL;
+	split_argv = NULL;
+	if (process_arguments(argc, argv, &a, &split_argv))
+		return (1);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
@@ -34,8 +47,8 @@ int main(int argc, char **argv)
 		else
 			sort_stacks(&a, &b);
 	}
-	if (argv)
-		free_split(argv);
+	if (split_argv)
+		free_split(split_argv, count_wd(argv[1], ' '));
 	free_stack(&a);
 	return (0);
 }

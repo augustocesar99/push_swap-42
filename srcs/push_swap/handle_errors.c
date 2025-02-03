@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:11:23 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/31 17:35:23 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:36:15 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,31 @@ void	free_errors(t_stack_node **a)
 	exit(1);
 }
 
-void free_split(char **result_array)
+void free_split(char **result_array, int words)
 {
 	int i;
 	
 	i = 0;
-	while (result_array[i]) 
+	while (i < words) 
 	{
 		free(result_array[i]);
 		i++;
 	}
 	free(result_array);
+}
+
+int	count_wd(char const *str, char c)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != c && (i == 0 || str[i - 1] == c))
+			count++;
+		i++;
+	}
+	return (count);
 }

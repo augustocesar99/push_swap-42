@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:46:48 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/31 17:45:03 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:37:29 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int				error_syntax(char *str_n);
 int				error_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
 void			free_errors(t_stack_node **a);
-void			free_split(char **result_array);
+void			free_split(char **result_array, int words);
+int				count_wd(char const *str, char c);
 
 void			init_stack_a(t_stack_node **a, char **argv);
 
