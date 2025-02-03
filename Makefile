@@ -6,7 +6,7 @@
 #    By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 14:41:52 by acesar-m          #+#    #+#              #
-#    Updated: 2025/02/03 16:45:26 by acesar-m         ###   ########.fr        #
+#    Updated: 2025/02/03 18:04:46 by acesar-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ COMMANDS_SRCS		= $(SRC_DIR)commands/push.c \
 						$(SRC_DIR)commands/rev_rotate.c \
 						$(SRC_DIR)commands/rotate.c \
 						$(SRC_DIR)commands/sort_stacks.c \
+						$(SRC_DIR)commands/sort_stacks_utils.c \
 						$(SRC_DIR)commands/sort_three.c \
 						$(SRC_DIR)commands/swap.c
 
@@ -66,7 +67,6 @@ clean:
 
 fclean: clean
 					@$(RM) $(NAME)
-					@$(RM) $(LIBFT)
 					@printf "\033[0;33mFiles removed successfully!\033[0m\n"
 
 re: fclean all

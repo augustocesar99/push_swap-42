@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:59:25 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/02/03 16:54:55 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:10:07 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,20 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 	}
 	current_index(*a);
 	min_on_top(a);
+}
+
+int	count_wd(char const *str, char c)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != c && (i == 0 || str[i - 1] == c))
+			count++;
+		i++;
+	}
+	return (count);
 }
