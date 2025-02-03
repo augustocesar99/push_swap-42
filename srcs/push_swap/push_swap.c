@@ -6,13 +6,14 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:17:10 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/02/03 11:56:18 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:58:46 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static int	process_arguments(int argc, char **argv, t_stack_node **a, char ***split_argv)
+static int	process_arguments(int argc, char **argv,
+	t_stack_node **a, char ***split_argv)
 {
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
@@ -29,9 +30,9 @@ static int	process_arguments(int argc, char **argv, t_stack_node **a, char ***sp
 
 int	main(int argc, char **argv)
 {
-	t_stack_node	*a = NULL;
-	t_stack_node	*b = NULL;
-	char			**split_argv = NULL;
+	t_stack_node	*a;
+	t_stack_node	*b;
+	char			**split_argv;
 
 	a = NULL;
 	b = NULL;

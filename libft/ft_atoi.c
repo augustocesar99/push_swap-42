@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:45:12 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/31 15:09:27 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:00:01 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@ long	ft_atoi(const char *str);
 
 long	ft_atoi(const char *str)
 {
-	int	i;
-	int	neg;
+	int		i;
+	int		neg;
 	long	res;
 
 	i = 0;

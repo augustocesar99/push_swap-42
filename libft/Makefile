@@ -62,7 +62,7 @@ else
 	OBJ_SWITCH = $(OBJS)
 endif
 
-all:		bonus $(NAME)
+all:		$(NAME) bonus
 
 $(NAME):	$(OBJ_SWITCH)
 			ar rcs $@ $^
@@ -81,4 +81,4 @@ re:			fclean all
 bonus:
 			$(MAKE) WITH_BONUS=1 $(NAME)
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re bonus

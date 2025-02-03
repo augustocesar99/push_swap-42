@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:57:14 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/31 17:41:26 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:57:03 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 
 void	pa(t_stack_node **a, t_stack_node **b, t_bool print)
 {
-	push(a, b); 
-	if (print == FALSE) 
+	push(a, b);
+	if (print == FALSE)
 		ft_printf("pa\n");
 }
 
