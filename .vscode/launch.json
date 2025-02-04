@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/nfs/homes/acesar-m/Documents/formacao/projetos/Push_swap",
-      "program": "/nfs/homes/acesar-m/Documents/formacao/projetos/Push_swap/build/Debug/outDebug",
+      "cwd": "/nfs/homes/acesar-m/Documents/formacao/projetos/Push_swap/.vscode",
+      "program": "/nfs/homes/acesar-m/Documents/formacao/projetos/Push_swap/.vscode/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
