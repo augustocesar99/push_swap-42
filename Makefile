@@ -6,25 +6,21 @@
 #    By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 14:41:52 by acesar-m          #+#    #+#              #
-#    Updated: 2025/02/03 18:04:46 by acesar-m         ###   ########.fr        #
+#    Updated: 2025/02/04 14:41:57 by acesar-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Padrão
 NAME				= push_swap
 
-# Diretórios
 LIBFT				= ./libft/libft.a
 INC					= include/
 SRC_DIR				= srcs/
 OBJ_DIR				= obj/
 
-# Compilador e CFlags
 CC					= gcc
 CFLAGS				= -Wall -Werror -Wextra -I$(INC)
 RM					= rm -f
 
-# Arquivos Fonte
 COMMANDS_SRCS		= $(SRC_DIR)commands/push.c \
 						$(SRC_DIR)commands/rev_rotate.c \
 						$(SRC_DIR)commands/rotate.c \
@@ -40,13 +36,10 @@ PUSH_SWAP_SRCS		= $(SRC_DIR)push_swap/handle_errors.c \
 						$(SRC_DIR)push_swap/stack_init.c \
 						$(SRC_DIR)push_swap/stack_utils.c
 
-# Concatenar todos os arquivos fonte
 SRCS 				= $(COMMANDS_SRCS) $(PUSH_SWAP_SRCS)
 
-# Gerar os arquivos objeto a partir dos arquivos fonte
 OBJ 				= $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
-# Regras de construção
 all:				$(NAME)
 
 $(NAME):			$(OBJ) $(LIBFT)
@@ -56,7 +49,6 @@ $(NAME):			$(OBJ) $(LIBFT)
 $(LIBFT):
 					@make -s -C ./libft
 
-# Compilar arquivos objeto a partir dos arquivos fonte
 $(OBJ_DIR)%.o:		$(SRC_DIR)%.c 
 					@mkdir -p $(@D)
 					@$(CC) $(CFLAGS) -c $< -o $@
@@ -71,5 +63,4 @@ fclean: clean
 
 re: fclean all
 
-# Alvos phony representam ações, não arquivos
 .PHONY: all clean fclean re
