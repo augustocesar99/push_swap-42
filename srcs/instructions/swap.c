@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:01:42 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/02/19 11:58:22 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:32:01 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	swap(t_stack_node **head)
 {
 	t_stack_node	*first;
 	t_stack_node	*second;
+
 	if (!*head || !(*head)->next)
 		return ;
 	first = *head;
