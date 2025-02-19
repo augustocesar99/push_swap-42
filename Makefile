@@ -6,7 +6,7 @@
 #    By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 14:41:52 by acesar-m          #+#    #+#              #
-#    Updated: 2025/02/04 14:41:57 by acesar-m         ###   ########.fr        #
+#    Updated: 2025/02/19 12:44:36 by acesar-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,22 +21,22 @@ CC					= gcc
 CFLAGS				= -Wall -Werror -Wextra -I$(INC)
 RM					= rm -f
 
-COMMANDS_SRCS		= $(SRC_DIR)commands/push.c \
-						$(SRC_DIR)commands/rev_rotate.c \
-						$(SRC_DIR)commands/rotate.c \
-						$(SRC_DIR)commands/sort_stacks.c \
-						$(SRC_DIR)commands/sort_stacks_utils.c \
-						$(SRC_DIR)commands/sort_three.c \
-						$(SRC_DIR)commands/swap.c
+INSTRUCTIONS_SRCS		= $(SRC_DIR)instructions/push.c \
+						$(SRC_DIR)instructions/rev_rotate.c \
+						$(SRC_DIR)instructions/rotate.c \
+						$(SRC_DIR)instructions/sort_stacks.c \
+						$(SRC_DIR)instructions/sort_stacks_utils.c \
+						$(SRC_DIR)instructions/sort_three.c \
+						$(SRC_DIR)instructions/swap.c
 
-PUSH_SWAP_SRCS		= $(SRC_DIR)push_swap/handle_errors.c \
-						$(SRC_DIR)push_swap/init_a_to_b.c \
-						$(SRC_DIR)push_swap/init_b_to_a.c \
-						$(SRC_DIR)push_swap/push_swap.c \
+PUSH_SWAP_SRCS		= $(SRC_DIR)push_swap/errors.c \
+						$(SRC_DIR)push_swap/a_to_b.c \
+						$(SRC_DIR)push_swap/b_to_a.c \
+						$(SRC_DIR)push_swap/main.c \
 						$(SRC_DIR)push_swap/stack_init.c \
 						$(SRC_DIR)push_swap/stack_utils.c
 
-SRCS 				= $(COMMANDS_SRCS) $(PUSH_SWAP_SRCS)
+SRCS 				= $(INSTRUCTIONS_SRCS) $(PUSH_SWAP_SRCS)
 
 OBJ 				= $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 

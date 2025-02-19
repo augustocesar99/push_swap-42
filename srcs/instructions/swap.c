@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:01:42 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/31 17:43:42 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/19 11:58:22 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,36 @@
 
 static void	swap(t_stack_node **head)
 {
+	t_stack_node	*first;
+	t_stack_node	*second;
 	if (!*head || !(*head)->next)
 		return ;
-	*head = (*head)->next;
-	(*head)->prev->prev = *head;
-	(*head)->prev->next = (*head)->next;
-	if ((*head)->next)
-		(*head)->next->prev = (*head)->prev;
-	(*head)->next = (*head)->prev;
-	(*head)->prev = NULL;
+	first = *head;
+	second = (*head)->next;
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	*head = second;
 }
 
-void	sa(t_stack_node	**a, t_bool print)
+void	sa(t_stack_node	**a)
 {
 	swap(a);
-	if (print == FALSE)
-		ft_printf("sa\n");
+	ft_printf("sa\n");
 }
 
-void	sb(t_stack_node **b, t_bool print)
+void	sb(t_stack_node **b)
 {
 	swap(b);
-	if (print == FALSE)
-		ft_printf("sb\n");
+	ft_printf("sb\n");
 }
 
-void	ss(t_stack_node **a, t_stack_node **b, t_bool print)
+void	ss(t_stack_node **a, t_stack_node **b)
 {
 	swap(a);
 	swap(b);
-	if (print == FALSE)
-		ft_printf("ss\n");
+	ft_printf("ss\n");
 }

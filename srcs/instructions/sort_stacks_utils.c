@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:59:25 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/02/03 18:10:07 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/19 12:03:04 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 
 	len_a = stack_len(*a);
 	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, FALSE);
+		pb(b, a);
 	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, FALSE);
+		pb(b, a);
 	while (len_a-- > 3 && !stack_sorted(*a))
 	{
 		init_nodes_a(*a, *b);

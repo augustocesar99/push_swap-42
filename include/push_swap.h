@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:46:48 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/02/03 17:00:44 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/19 12:01:44 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,17 @@ t_bool			stack_sorted(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
 
-void			sa(t_stack_node **a, t_bool print);
-void			sb(t_stack_node **b, t_bool print);
-void			ss(t_stack_node **a, t_stack_node **b, t_bool print);
-void			ra(t_stack_node **a, t_bool print);
-void			rb(t_stack_node **b, t_bool print);
-void			rr(t_stack_node **a, t_stack_node **b, t_bool print);
-void			rra(t_stack_node **a, t_bool print);
-void			rrb(t_stack_node **b, t_bool print);
-void			rrr(t_stack_node **a, t_stack_node **b, t_bool print);
-void			pa(t_stack_node **a, t_stack_node **b, t_bool print);
-void			pb(t_stack_node **b, t_stack_node **a, t_bool print);
+void			sa(t_stack_node **a);
+void			sb(t_stack_node **b);
+void			ss(t_stack_node **a, t_stack_node **b);
+void			ra(t_stack_node **a);
+void			rb(t_stack_node **b);
+void			rr(t_stack_node **a, t_stack_node **b);
+void			rra(t_stack_node **a);
+void			rrb(t_stack_node **b);
+void			rrr(t_stack_node **a, t_stack_node **b);
+void			pa(t_stack_node **a, t_stack_node **b);
+void			pb(t_stack_node **b, t_stack_node **a);
 
 void			rotate_both(t_stack_node **a, t_stack_node **b,
 					t_stack_node *cheapest_node);

@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:17:10 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/02/03 16:58:46 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/19 11:58:31 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
-			sa(&a, FALSE);
+			sa(&a);
 		else if (stack_len(a) == 3)
 			sort_three(&a);
 		else

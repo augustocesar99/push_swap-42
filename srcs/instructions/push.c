@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:57:14 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/02/03 16:57:03 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/19 12:04:15 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,14 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 	}
 }
 
-void	pa(t_stack_node **a, t_stack_node **b, t_bool print)
+void	pa(t_stack_node **a, t_stack_node **b)
 {
 	push(a, b);
-	if (print == FALSE)
-		ft_printf("pa\n");
+	ft_printf("pa\n");
 }
 
-void	pb(t_stack_node **b, t_stack_node **a, t_bool print)
+void	pb(t_stack_node **b, t_stack_node **a)
 {
 	push(b, a);
-	if (print == FALSE)
-		ft_printf("pb\n");
+	ft_printf("pb\n");
 }

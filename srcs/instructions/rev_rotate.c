@@ -6,7 +6,7 @@
 /*   By: acesar-m <acesar-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:57:43 by acesar-m          #+#    #+#             */
-/*   Updated: 2025/01/31 17:41:51 by acesar-m         ###   ########.fr       */
+/*   Updated: 2025/02/19 12:00:07 by acesar-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,21 @@ static void	rev_rotate(t_stack_node **stack)
 	last->next->prev = last;
 }
 
-void	rra(t_stack_node **a, t_bool print)
+void	rra(t_stack_node **a)
 {
 	rev_rotate(a);
-	if (print == FALSE)
-		ft_printf("rra\n");
+	ft_printf("rra\n");
 }
 
-void	rrb(t_stack_node **b, t_bool print)
+void	rrb(t_stack_node **b)
 {
 	rev_rotate(b);
-	if (print == FALSE)
-		ft_printf("rrb\n");
+	ft_printf("rrb\n");
 }
 
-void	rrr(t_stack_node **a, t_stack_node **b, t_bool print)
+void	rrr(t_stack_node **a, t_stack_node **b)
 {
 	rev_rotate(a);
 	rev_rotate(b);
-	if (print == FALSE)
-		ft_printf("rrr\n");
+	ft_printf("rrr\n");
 }
