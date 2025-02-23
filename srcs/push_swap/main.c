@@ -12,13 +12,22 @@
 
 #include "../../include/push_swap.h"
 
-static int	process_arguments(int argc, char **argv,
-	t_stack_node **a, char ***split_argv)
+static int process_arguments(int argc, char **argv, t_stack_node **a, char ***split_argv)
 {
+	int i;
+
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
+
 	if (argc == 2)
 	{
+		i = 0;
+		while (argv[1][i])
+		{
+			if (!ft_isdigit(argv[1][i]) && argv[1][i] != ' ' && argv[1][i] != '-')
+				return (1);
+			i++;
+		}
 		*split_argv = ft_split(argv[1], ' ');
 		if (!*split_argv)
 			return (1);
