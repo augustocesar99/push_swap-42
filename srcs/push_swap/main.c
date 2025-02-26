@@ -12,6 +12,46 @@
 
 #include "../../include/push_swap.h"
 
+static int	is_repeated(char **argv)
+{
+	int		i;
+	int		j;
+	char	*temp;
+
+	i = 0;
+	j = 0;
+	while (argv[i] != NULL)
+	{
+		temp = argv[i];
+		while (argv[j] != NULL)
+		{
+			if (argv[i] == argv[j] && i != j)
+			{
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+static int	is_valid_number_string(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]) && str[i] != ' ' && str[i] != '-')
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
+
 static int	process_arguments(int argc, char **argv,
 		t_stack_node **a, char ***split_argv)
 {
@@ -22,17 +62,21 @@ static int	process_arguments(int argc, char **argv,
 	if (argc == 2)
 	{
 		i = 0;
-		while (argv[1][i])
+		if (!is_valid_number_string(argv[1]))
 		{
-			if (!ft_isdigit(argv[1][i]) && argv[1][i] !=
-					' ' && argv[1][i] != '-')
-				return (1);
-			i++;
+			ft_printf("Error\n");
+			return (1);
 		}
-		*split_argv = ft_split(argv[1], ' ');
+		if (ft_strchr(argv[1], ' '))
+			*split_argv = ft_split(argv[1], ' ');
 		if (!*split_argv)
 			return (1);
 		argv = *split_argv;
+		if (!is_repeated(&argv[1]))
+		{
+			ft_printf("Error\n");
+			return (0);
+		}
 	}
 	init_stack_a(a, argv + 1);
 	return (0);

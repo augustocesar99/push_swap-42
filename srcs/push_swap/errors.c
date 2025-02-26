@@ -32,8 +32,6 @@ int	error_syntax(char *str_n)
 
 int	error_duplicate(t_stack_node *a, int n)
 {
-	if (!a)
-		return (0);
 	while (a)
 	{
 		if (a->nbr == n)

@@ -1,0 +1,8 @@
+# Ignorar a pasta .vscode
+.vscode/
+
+# Manter super (caso seja um diretório ou arquivo necessário)
+!super
+
+# Manter o próprio .gitignore
+.gitignore

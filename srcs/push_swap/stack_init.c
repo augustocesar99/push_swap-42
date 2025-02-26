@@ -54,7 +54,10 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		if (n > INT_MAX || n < INT_MIN)
 			free_errors(a);
 		if (error_duplicate(*a, (int)n))
+		{
 			free_errors(a);
+			exit(1);
+		}
 		append_node(a, (int)n);
 		i++;
 	}
