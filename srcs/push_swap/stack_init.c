@@ -48,7 +48,6 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	i = 0;
 	while (argv[i])
 	{
-		ft_printf("Lendo argv[%d]: %s\n", i, argv[i]);
 		if (error_syntax(argv[i]))
 			free_errors(a);
 		n = ft_atoi(argv[i]);
