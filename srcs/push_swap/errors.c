@@ -71,7 +71,8 @@ void	free_split(char **result_array, int words)
 	int	i;
 
 	i = 0;
-	while (i < words)
+	(void)words;
+	while (result_array[i])
 	{
 		free(result_array[i]);
 		i++;
