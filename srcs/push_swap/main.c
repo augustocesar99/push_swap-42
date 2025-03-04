@@ -12,17 +12,42 @@
 
 #include "../../include/push_swap.h"
 
+static char	*ft_strjoin_multiple(int count, char **argv, const char *delimiter)
+{
+    int		i;
+    int		total_length;
+    char	*result;
+    char	*ptr;
+
+    total_length = 0;
+    i = 0;
+    while (i < count)
+        total_length += ft_strlen(argv[i++]) + ft_strlen(delimiter);
+    result = malloc(total_length + 1);
+    if (!result)
+        return (NULL);
+    ptr = result;
+    i = 0;
+    while (i < count)
+    {
+        ptr += ft_strlcpy(ptr, argv[i], total_length - (ptr - result) + 1);
+        if (i < count - 1)
+            ptr += ft_strlcpy(ptr, delimiter, total_length - (ptr - result) + 1);
+        i++;
+    }
+    *ptr = '\0';
+    return (result);
+}
+
 static int	is_repeated(char **argv)
 {
 	int		i;
 	int		j;
-	char	*temp;
 
 	i = 0;
-	j = 0;
 	while (argv[i] != NULL)
 	{
-		temp = argv[i];
+		j = 0;
 		while (argv[j] != NULL)
 		{
 			if (argv[i] == argv[j] && i != j)
@@ -53,33 +78,32 @@ static int	is_valid_number_string(char *str)
 }
 
 static int	process_arguments(int argc, char **argv,
-		t_stack_node **a, char ***split_argv)
+	t_stack_node **a, char ***split_argv)
 {
-	int	i;
-
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	if (argc == 2)
+if (argc == 1 || (argc == 2 && !argv[1][0]))
+	return (1);
+if (argc >= 2)
+{
+	char *joined_args = ft_strjoin_multiple(argc - 1, &argv[1], " ");
+	if (!is_valid_number_string(joined_args))
 	{
-		i = 0;
-		if (!is_valid_number_string(argv[1]))
-		{
-			ft_printf("Error\n");
-			return (1);
-		}
-		if (ft_strchr(argv[1], ' '))
-			*split_argv = ft_split(argv[1], ' ');
-		if (!*split_argv)
-			return (1);
-		argv = *split_argv;
-		if (!is_repeated(&argv[1]))
-		{
-			ft_printf("Error\n");
-			return (0);
-		}
+		ft_printf("Error\n");
+		free(joined_args);
+		return (1);
 	}
-	init_stack_a(a, argv + 1);
-	return (0);
+	*split_argv = ft_split(joined_args, ' ');
+	free(joined_args);
+	if (!*split_argv)
+		return (1);
+	argv = *split_argv;
+	if (is_repeated(argv))
+	{
+		ft_printf("Error\n");
+		return (0);
+	}
+}
+init_stack_a(a, argv);
+return (0);
 }
 
 int	main(int argc, char **argv)
