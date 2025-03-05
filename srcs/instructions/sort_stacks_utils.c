@@ -36,18 +36,23 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 	min_on_top(a);
 }
 
-int	count_wd(char const *str, char c)
+int	count_wd(char *str, char c)
 {
-	int	count;
-	int	i;
+    int	count;
+    int	i;
 
-	count = 0;
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] != c && (i == 0 || str[i - 1] == c))
-			count++;
-		i++;
-	}
-	return (count);
+    count = 0;
+    i = 0;
+    while (*str)
+    {
+        if (i && *str == c)
+            i = 0;
+        if (!i && *str != c)
+        {
+            i = 1;
+            count++;
+        }
+        str++;
+    }
+    return (count);
 }
