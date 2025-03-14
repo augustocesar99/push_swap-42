@@ -12,12 +12,12 @@
 
 NAME				= push_swap
 
-LIBFT				= ./libft/libft.a
+LIBFT				= libft/libft.a
 INC					= include/
 SRC_DIR				= srcs/
 OBJ_DIR				= obj/
 
-CC					= gcc
+CC					= cc
 CFLAGS				= -Wall -Werror -Wextra -I$(INC)
 RM					= rm -f
 

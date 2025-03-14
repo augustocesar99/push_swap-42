@@ -66,9 +66,9 @@ void	free_errors(t_stack_node **a)
 	exit(1);
 }
 
-void free_split(char **result_array, int words)
+void	free_split(char **result_array, int words)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	(void)words;

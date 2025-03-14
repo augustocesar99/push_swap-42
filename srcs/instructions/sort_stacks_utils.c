@@ -38,21 +38,21 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 
 int	count_wd(char *str, char c)
 {
-    int	count;
-    int	i;
+	int	count;
+	int	i;
 
-    count = 0;
-    i = 0;
-    while (*str)
-    {
-        if (i && *str == c)
-            i = 0;
-        if (!i && *str != c)
-        {
-            i = 1;
-            count++;
-        }
-        str++;
-    }
-    return (count);
+	count = 0;
+	i = 0;
+	while (*str)
+	{
+		if (i && *str == c)
+			i = 0;
+		if (!i && *str != c)
+		{
+			i = 1;
+			count++;
+		}
+		str++;
+	}
+	return (count);
 }

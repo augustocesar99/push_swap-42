@@ -32,7 +32,8 @@ static char	*ft_strjoin_multiple(int count, char **argv, const char *delimiter)
 	{
 		ptr += ft_strlcpy(ptr, argv[i], total_length - (ptr - result) + 1);
 		if (i < count - 1)
-			ptr += ft_strlcpy(ptr, delimiter, total_length - (ptr - result) + 1);
+			ptr += ft_strlcpy(ptr, delimiter, total_length
+					- (ptr - result) + 1);
 		i++;
 	}
 	*ptr = '\0';
@@ -128,4 +129,3 @@ int	main(int argc, char **argv)
 	free_stack(&a);
 	return (0);
 }
-
